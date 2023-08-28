@@ -42,3 +42,18 @@ df1=pd.DataFrame(dict1)
 # print(df1['Marks'].min()) Returns the minimum value in that particular column
 # print(df1['Marks'].min()) Returns the maximum value in that particular column
 
+# def marks(x):
+#     return x/2
+# print(df1['Marks'].apply(marks)) Apply method is used for passing in custom made function which in this case is marks
+# df1['Half_Marks']=df1['Marks'].apply(marks) This is used for creating a new column name 'Half_Marks'
+
+
+# print(df1['Marks'].apply(lambda x:x/2)) Doing the same thing as above by using lambda function
+# print(df1['Name'].apply(len)) This displays the length of the Name string here.
+
+
+# df1['Male_Female']= df1['Gender'].map({'Male':1,'Female':0})
+# print(df1)
+# Using map for encoding purposes (Male to 1 and Female to 0 in a new column in this case)
+
+
