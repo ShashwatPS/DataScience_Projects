@@ -56,4 +56,20 @@ df1=pd.DataFrame(dict1)
 # print(df1)
 # Using map for encoding purposes (Male to 1 and Female to 0 in a new column in this case)
 
+# df1['Half_Marks']=df1['Marks'].apply(lambda x:x/2)
+# df1['Male_Female']= df1['Gender'].map({'Male':1,'Female':0})
+# # print(df1.drop('Male_Female',axis=1)) This drops a column form the dataset named 'Male_Female'
+# print(df1.drop(['Male_Female','Half_Marks'],axis=1,inplace=True))
+# The above statement drops 2 columns (Could be more depends on the no.of coulmns passed in List) form the dataset and the "
+# inplace=True modifies the existing data
 
+# print(df1.columns) Prints the name of all the columns
+# print(df1.index) Displays the Range of the Index
+
+# print(df1.sort_values(by='Marks',ascending=False)) Sorts the DataFrame in descending order according to the values in 'Marks' column
+# print(df1.sort_values(by=['Marks','Gender'],ascending=False))  Sorts first by 'Marks' and then according to 'Gender'
+
+# print(df1[df1['Gender']=='Female']) Prints only those rows where 'Gender' column's value is 'Female'
+# print(df1[df1['Gender']=='Female']['Name']) Prints only those names in the 'Name' column where 'Gender' column's value is 'Female'
+
+# print(df1[df1['Gender'].isin(['Female'])][['Name','Marks']]) Same thing as above but using the isin function
