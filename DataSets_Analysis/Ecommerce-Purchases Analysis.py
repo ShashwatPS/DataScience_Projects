@@ -39,3 +39,13 @@ print(data[data['IP Address']=='132.207.160.22']['Email'])
 print(len(data[(data['CC Provider']=='Mastercard') & (data['Purchase Price']>50)]))
 
 # 12. Find the email of the person with the following Credit Card Number: 4664825258997302
+print(data[data['Credit Card']==4664825258997302]['Email'])
+
+# 13. How many people purchase during the AM and how many people purchase during PM?
+print(len(data[data['AM or PM']=='AM']))
+
+# 14. How many people have a credit card that expires in 2020?
+print(len(data[data['CC Exp Date'].str.contains('20')]))
+
+# 15. What are the top 5 most popular email providers (e.g. gmail.com, yahoo.com, etc...)
+print(data['Email'].apply(lambda x: x.split('@')[1]).value_counts().head())
