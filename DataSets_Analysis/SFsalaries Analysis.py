@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 
 data = pd.read_csv("../DataSets/SFsalaries.csv", low_memory=False)
@@ -24,13 +25,32 @@ data.drop(['Id','Notes','Agency','Status'],axis=1)
 print(data.head(1))
 
 # 7. Get Overall Statistics About The Dataframe
+print(data.describe(include='all'))
+
 # 8. Find Occurrence of The Employee Names  (Top 5)
+print(data['EmployeeName'].value_counts())
+
 # 9. Find The Number of Unique Job Titles
+# print(len(data['JobTitle'].unique()))
+print(data['JobTitle'].nunique())
+
 # 10.Total Number of Job Titles Contain Captain
+# print(len(data[data['JobTitle'].str.contains('Captain',case=False)]))
+print(data[data['JobTitle'].str.contains('Captain',case=False)].count())
+
 # 11. Display All the Employee Names From Fire Department
+print(data[data['JobTitle'].str.contains('fire',case=False)]['EmployeeName'])
+
 # 12. Find Minimum, Maximum, and Average BasePay
+print(data['BasePay'].describe())
+
 # 13. Replace 'Not Provided' in EmployeeName' Column to NaN
+data['EmployeeName']=data['EmployeeName'].replace('Not provided',np.nan)
+print(data['EmployeeName'])
+
 # 14. Drop The Rows Having 5 Missing Values
+
+
 # 15. Find Job Title of ALBERT PARDINI
 # 16. How Much ALBERT PARDINI Make (Include Benefits)?
 # 17.Display Name of The Person Having The Highest BasePay
