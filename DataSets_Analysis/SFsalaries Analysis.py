@@ -49,12 +49,26 @@ data['EmployeeName']=data['EmployeeName'].replace('Not provided',np.nan)
 print(data['EmployeeName'])
 
 # 14. Drop The Rows Having 5 Missing Values
-
+data.drop(data[(data.isnull().sum(axis=1)==5)].index,axis=0,inplace=True)
+print(data.isnull().sum(axis=1))
 
 # 15. Find Job Title of ALBERT PARDINI
+print(data[data['EmployeeName']=='ALBERT PARDINI']['JobTitle'])
+
 # 16. How Much ALBERT PARDINI Make (Include Benefits)?
+# print(data[data['EmployeeName']=='ALBERT PARDINI']['TotalPayBenefits'])
+
 # 17.Display Name of The Person Having The Highest BasePay
+# print(data[data['BasePay'].max()==data['BasePay']]['EmployeeName'])
+
 # 18.Find Average BasePay of All Employee Per Year
+# print(data.groupby('Year').mean()['BasePay'])
+
 # 19. Find Average BasePay of All Employee Per JobTitle
+# print(data.groupby('JobTitle').mean()['BasePay'])
+
 # 20. Find Average BasePay of Employee Having Job Title ACCOUNTANT
+# print(data[data['JobTitle']=='ACCOUNTANT']['BasePay'].mean())
+
 # 21. Find Top 5 Most Common Jobs
+print(data['JobTitle'].value_counts().head())
